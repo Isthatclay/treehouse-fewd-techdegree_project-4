@@ -1,4 +1,4 @@
-# Project 3: Interactive Photo Gallery
+# Project 4: Interactive Photo Gallery
 
 [Treehouse Front End Web Development Techdegree](https://teamtreehouse.com/techdegree)
 
