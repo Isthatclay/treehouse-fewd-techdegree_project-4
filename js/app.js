@@ -1,7 +1,7 @@
 /**
  * Gather and store image data for use in lightbox
  */
-document.imageData = (function getImageData () {
+document.lightboxData = (function getImageData () {
   var lightboxElements = document.querySelectorAll('.js-lightbox-anchor');
 
   return Array.prototype.map.call(lightboxElements, function (item, index) {
@@ -29,5 +29,5 @@ document.querySelector('.js-lightbox-items').addEventListener('click', function 
 
   event.preventDefault();
   var index = target.getAttribute('data-lightbox-index');
-  document.lightbox(document.imageData[index]);
+  document.lightbox(document.lightboxData[index]);
 });

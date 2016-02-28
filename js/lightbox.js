@@ -45,23 +45,34 @@ document.lightbox = (function lightbox () {
   }
 
   function setContent (imageData) {
-    var elImage = document.createElement('img');
-    elImage.className = 'lightbox__image';
-    elImage.src = imageData.url;
-    elImage.alt = imageData.title;
+    var elLightboxContent;
 
-    var elImageTitle = document.createElement('div');
-    elImageTitle.className = 'lightbox__title';
-    elImageTitle.textContent = imageData.title;
+    if (imageData.url.indexOf('://www.youtube.com/embed/') > -1) {
+      elLightboxContent = document.createElement('div');
+      elLightboxContent.className = 'lightbox__content';
+      var iframe = document.createElement('iframe');
+      iframe.src = imageData.url;
+      iframe.className = 'lightbox__iframe';
+      elLightboxContent.appendChild(iframe);
+    } else {
+      elLightboxContent = document.createElement('img');
+      elLightboxContent.className = 'lightbox__content';
+      elLightboxContent.alt = imageData.title;
+      elLightboxContent.src = imageData.url;
+    }
 
-    var elImageCaption = document.createElement('div');
-    elImageCaption.className = 'lightbox__caption';
-    elImageCaption.textContent = imageData.caption;
+    var elLightboxTitle = document.createElement('div');
+    elLightboxTitle.className = 'lightbox__title';
+    elLightboxTitle.textContent = imageData.title;
+
+    var elLightboxCaption = document.createElement('div');
+    elLightboxCaption.className = 'lightbox__caption';
+    elLightboxCaption.textContent = imageData.caption;
 
     var content = document.createElement('div');
-    content.appendChild(elImage);
-    content.appendChild(elImageTitle);
-    content.appendChild(elImageCaption);
+    content.appendChild(elLightboxContent);
+    content.appendChild(elLightboxTitle);
+    content.appendChild(elLightboxCaption);
 
     elLightboxInner.innerHTML = content.innerHTML;
     current = imageData.index;
@@ -74,27 +85,27 @@ document.lightbox = (function lightbox () {
   }
 
   function nextIndex () {
-    return current > document.imageData.length - 2 ? 0 : current + 1;
+    return current > document.lightboxData.length - 2 ? 0 : current + 1;
   }
 
   function prevIndex () {
-    return current === 0 ? document.imageData.length - 1 : current - 1;
+    return current === 0 ? document.lightboxData.length - 1 : current - 1;
   }
 
   function next () {
-    setContent(document.imageData[nextIndex()]);
+    setContent(document.lightboxData[nextIndex()]);
   }
 
   function prev () {
-    setContent(document.imageData[prevIndex()]);
+    setContent(document.lightboxData[prevIndex()]);
   }
 
   function preloadAdjacentImages () {
     // preload next and previous images for smoother transation
     var elPrevImage = document.createElement('img');
     var elNextImage = document.createElement('img');
-    elPrevImage.src = document.imageData[prevIndex()].url;
-    elNextImage.src = document.imageData[nextIndex()].url;
+    elPrevImage.src = document.lightboxData[prevIndex()].url;
+    elNextImage.src = document.lightboxData[nextIndex()].url;
   }
 
   function arrowKeys (event) {
