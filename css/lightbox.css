@@ -14,27 +14,31 @@
  .lightbox {
    margin: auto;
    position: relative;
-   width: 80vw;
  }
 
  .lightbox__content {
    display: block;
    border: 0;
    width: 100%;
+   max-width: 80vw;
+   max-height: 75vh;
    border: 0;
    position: relative;
  }
 
- .lightbox__content::before {
+ .lightbox__content--iframe {
+   width: 80vw;
+ }
+
+ .lightbox__content--iframe::before {
    content: '';
    display: block;
    padding-top: 56.25%;
-   background: #000;
    position: relative;
    z-index: -2;
  }
 
- .lightbox__content::after {
+ .lightbox__content--iframe::after {
    content: 'Loading..';
    position: absolute;
    top: 50%;

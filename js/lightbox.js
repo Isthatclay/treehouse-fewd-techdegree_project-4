@@ -49,7 +49,7 @@ document.lightbox = (function lightbox () {
 
     if (imageData.url.indexOf('://www.youtube.com/embed/') > -1) {
       elLightboxContent = document.createElement('div');
-      elLightboxContent.className = 'lightbox__content';
+      elLightboxContent.className = 'lightbox__content lightbox__content--iframe';
       var iframe = document.createElement('iframe');
       iframe.src = imageData.url;
       iframe.className = 'lightbox__iframe';
