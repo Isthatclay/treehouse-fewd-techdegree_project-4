@@ -47,13 +47,15 @@ input {
   margin-top: 104px;
 }
 
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .gallery-item {
   width: calc((200 / 980) * 100%);
   margin-bottom: calc((60 / 980) * 100%);
-  margin-left: calc((60 / 980) * 100%);
-  display: inline-block;
-  vertical-align: top;
-  float: left;
 }
 
 .gallery-item:nth-of-type(4n+1) {
