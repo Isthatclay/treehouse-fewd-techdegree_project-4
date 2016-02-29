@@ -65,3 +65,8 @@ input {
   width: 0;
   margin: 0;
 }
+
+.gallery-item__image {
+  display: block;
+  box-shadow: 0 0 5px #aaa;
+}
