@@ -116,10 +116,14 @@ document.lightbox = (function lightbox () {
 
   function preloadAdjacentImages () {
     // preload next and previous images for smoother transation
-    var elPrevImage = document.createElement('img');
-    var elNextImage = document.createElement('img');
-    elPrevImage.src = lightboxData[prevIndex()].url;
-    elNextImage.src = lightboxData[nextIndex()].url;
+    if (isYoutTubeUrl(lightboxData[prevIndex()].url)) {
+      var elPrevImage = new window.Image();
+      elPrevImage.src = lightboxData[prevIndex()].url;
+    }
+    if (isYoutTubeUrl(lightboxData[nextIndex()].url)) {
+      var elNextImage = new window.Image();
+      elNextImage.src = lightboxData[nextIndex()].url;
+    }
   }
 
   function arrowKeys (event) {
