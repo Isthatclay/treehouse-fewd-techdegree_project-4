@@ -24,6 +24,7 @@
    * Event Listeners
    */
   elLightboxItems.addEventListener('click', openLightbox, false);
+  elGallerySearch.addEventListener('search', filterGallery, false);
   elGallerySearch.addEventListener('keyup', filterGallery, false);
 
   function openLightbox (event) {
