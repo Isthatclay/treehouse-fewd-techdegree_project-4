@@ -12,7 +12,6 @@
       var image = item.querySelector('.js-lightbox-image');
 
       return {
-        index: index,
         url: item.href,
         title: image.title.trim(),
         caption: image.alt.trim()
@@ -42,8 +41,8 @@
   function filterGallery (event) {
     var searchTerm = event.srcElement.value.trim().toLowerCase();
 
-    document.lightboxData = document.initialLightboxData.filter(function (item) {
-      var parentNode = arrlightboxElements[item.index].parentNode;
+    document.lightboxData = document.initialLightboxData.filter(function (item, index) {
+      var parentNode = arrlightboxElements[index].parentNode;
       var searchTermFound = (
         item.title.toLowerCase().indexOf(searchTerm) > -1 ||
         item.caption.toLowerCase().indexOf(searchTerm) > -1
