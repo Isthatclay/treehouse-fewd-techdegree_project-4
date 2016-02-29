@@ -14,8 +14,8 @@
       return {
         index: index,
         url: item.href,
-        title: image.title.trim().toLowerCase(),
-        caption: image.alt.trim().toLowerCase()
+        title: image.title.trim(),
+        caption: image.alt.trim()
       };
     });
   })();
@@ -45,8 +45,8 @@
     document.lightboxData = document.initialLightboxData.filter(function (item) {
       var parentNode = arrlightboxElements[item.index].parentNode;
       var searchTermFound = (
-        item.title.indexOf(searchTerm) > -1 ||
-        item.caption.indexOf(searchTerm) > -1
+        item.title.toLowerCase().indexOf(searchTerm) > -1 ||
+        item.caption.toLowerCase().indexOf(searchTerm) > -1
       );
 
       if (searchTermFound) {
