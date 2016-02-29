@@ -1,4 +1,5 @@
 document.lightbox = (function lightbox () {
+  var lightboxData;
   var current = 0;
   var elLightboxInner;
   var KEY_LEFT = 37;
@@ -6,6 +7,7 @@ document.lightbox = (function lightbox () {
   var KEY_ESC = 27;
 
   function init (imageData) {
+    lightboxData = document.lightboxData;
     var elWrapModal = document.createElement('div');
     elWrapModal.id = 'lightbox';
     elWrapModal.className = 'lightbox-wrap';
@@ -85,27 +87,27 @@ document.lightbox = (function lightbox () {
   }
 
   function nextIndex () {
-    return current > document.lightboxData.length - 2 ? 0 : current + 1;
+    return current > lightboxData.length - 2 ? 0 : current + 1;
   }
 
   function prevIndex () {
-    return current === 0 ? document.lightboxData.length - 1 : current - 1;
+    return current === 0 ? lightboxData.length - 1 : current - 1;
   }
 
   function next () {
-    setContent(document.lightboxData[nextIndex()]);
+    setContent(lightboxData[nextIndex()]);
   }
 
   function prev () {
-    setContent(document.lightboxData[prevIndex()]);
+    setContent(lightboxData[prevIndex()]);
   }
 
   function preloadAdjacentImages () {
     // preload next and previous images for smoother transation
     var elPrevImage = document.createElement('img');
     var elNextImage = document.createElement('img');
-    elPrevImage.src = document.lightboxData[prevIndex()].url;
-    elNextImage.src = document.lightboxData[nextIndex()].url;
+    elPrevImage.src = lightboxData[prevIndex()].url;
+    elNextImage.src = lightboxData[nextIndex()].url;
   }
 
   function arrowKeys (event) {
