@@ -75,7 +75,7 @@ document.lightbox = (function lightbox () {
     content.appendChild(elLightboxCaption);
 
     elLightboxInner.innerHTML = content.innerHTML;
-    current = imageData.index;
+    current = lightboxData.indexOf(imageData);
     preloadAdjacentImages();
   }
 
