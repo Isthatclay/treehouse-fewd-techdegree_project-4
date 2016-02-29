@@ -87,11 +87,23 @@ document.lightbox = (function lightbox () {
   }
 
   function nextIndex () {
-    return current > lightboxData.length - 2 ? 0 : current + 1;
+    if (lightboxData.length === 1) {
+      return 0; // only one element in array so no next item, return current
+    } else if (current > lightboxData.length - 2) {
+      return 0; // at end of array, return first item
+    } else {
+      return current + 1;
+    }
   }
 
   function prevIndex () {
-    return current === 0 ? lightboxData.length - 1 : current - 1;
+    if (lightboxData.length === 1) {
+      return 0; // only one element in array so no next item, return current
+    } else if (current === 0) {
+      return lightboxData.length - 1; // at start of array, return last item
+    } else {
+      return current - 1;
+    }
   }
 
   function next () {
