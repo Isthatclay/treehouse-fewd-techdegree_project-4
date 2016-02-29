@@ -58,6 +58,11 @@
    width: 100%;
  }
 
+ .lightbox-image {
+   display: block;
+   box-shadow: 0 0 5px #aaa;
+ }
+
  .lightbox__title,
  .lightbox__caption {
    max-width: 600px;
