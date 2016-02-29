@@ -49,7 +49,7 @@ document.lightbox = (function lightbox () {
   function setContent (imageData) {
     var elLightboxContent;
 
-    if (imageData.url.indexOf('://www.youtube.com/embed/') > -1) {
+    if (isYoutTubeUrl(imageData.url)) {
       elLightboxContent = document.createElement('div');
       elLightboxContent.className = 'lightbox__content lightbox__content--iframe';
       var iframe = document.createElement('iframe');
@@ -118,6 +118,10 @@ document.lightbox = (function lightbox () {
     } else if (event.keyCode === KEY_ESC) {
       remove();
     }
+  }
+
+  function isYoutTubeUrl (url) {
+    return url.indexOf('://www.youtube.com/embed/') > -1;
   }
 
   return init;
