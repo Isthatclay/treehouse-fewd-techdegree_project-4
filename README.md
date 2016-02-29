@@ -4,6 +4,7 @@
 
 [View Project](http://danhayden.github.io/treehouse-fewd-techdegree_project-4)
 
+![Interactive Photo Gallery](images/readme.jpg 'Interactive Photo Gallery')
 
 Implemented required steps plus the following:
 
@@ -15,3 +16,4 @@ Implemented required steps plus the following:
 - Custom lightbox works with left/right keys for navigation and ESC key to close
 - Custom lightbox is responsive
 - All hand coded, no libraries or plugins
+M
