@@ -35,8 +35,8 @@
     }
 
     var index = target.getAttribute('data-lightbox-index');
-    document.lightbox(document.lightboxData[index]);
-  });
+    document.lightbox(document.initialLightboxData[index]);
+  }
 
   function filterGallery (event) {
     var searchTerm = event.srcElement.value.trim().toLowerCase();
