@@ -82,18 +82,38 @@
  .lightbox__next {
    top: 50%;
    transform: translateY(-100%);
+   background: url('../images/arrow.svg') no-repeat;
+   height: 40px;
+   width: 20px;
  }
 
  .lightbox__prev {
-   right: calc(100% + 10px);
+   right: calc(100% + 5px);
  }
 
  .lightbox__next {
-   left: calc(100% + 10px);
+   left: calc(100% + 5px);
+   transform: scaleX(-1) translateY(-100%);
  }
 
  .lightbox__close {
    font-size: 32px;
    right: -23px;
    top: -40px;
+ }
+
+ @media (min-width: 760px) {
+   .lightbox__prev,
+   .lightbox__next {
+     height: 50px;
+     width: 30px;
+   }
+
+   .lightbox__prev {
+     right: calc(100% + 20px);
+   }
+
+   .lightbox__next {
+     left: calc(100% + 20px);
+   }
  }

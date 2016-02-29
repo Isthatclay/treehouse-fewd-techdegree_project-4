@@ -20,12 +20,10 @@ document.lightbox = (function lightbox () {
 
     var elLightboxPrev = document.createElement('div');
     elLightboxPrev.className = 'lightbox__prev';
-    elLightboxPrev.innerHTML = '◀︎';
     elLightboxPrev.addEventListener('click', prev);
 
     var elLightboxNext = document.createElement('div');
     elLightboxNext.className = 'lightbox__next';
-    elLightboxNext.innerHTML = '▶︎';
     elLightboxNext.addEventListener('click', next);
 
     var elLightboxClose = document.createElement('div');
