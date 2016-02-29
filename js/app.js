@@ -6,7 +6,7 @@
   /**
    * Gather and store image data for use in lightbox
    */
-  document.initialLightboxData = (function getImageData () {
+  document.lightboxData = document.initialLightboxData = (function getImageData () {
     return Array.prototype.map.call(arrlightboxElements, function (item, index) {
       item.setAttribute('data-lightbox-index', index);
       var image = item.querySelector('.js-lightbox-image');
@@ -20,12 +20,13 @@
     });
   })();
 
-  document.lightboxData = document.initialLightboxData;
-
   /**
    * Event Listeners
    */
-  elLightboxItems.addEventListener('click', function openLightbox (event) {
+  elLightboxItems.addEventListener('click', openLightbox, false);
+  elGallerySearch.addEventListener('keyup', filterGallery, false);
+
+  function openLightbox (event) {
     event.preventDefault();
     var target = event.target;
 
@@ -37,15 +38,15 @@
     document.lightbox(document.lightboxData[index]);
   });
 
-  elGallerySearch.addEventListener('keyup', function filterGallery (event) {
+  function filterGallery (event) {
     var searchTerm = event.srcElement.value.trim().toLowerCase();
 
     document.lightboxData = document.initialLightboxData.filter(function (item) {
+      var parentNode = arrlightboxElements[item.index].parentNode;
       var searchTermFound = (
         item.title.indexOf(searchTerm) > -1 ||
         item.caption.indexOf(searchTerm) > -1
       );
-      var parentNode = arrlightboxElements[item.index].parentNode;
 
       if (searchTermFound) {
         parentNode.classList.remove('gallery-item--hidden');
@@ -62,5 +63,5 @@
 
       return searchTermFound;
     });
-  });
+  }
 })();
